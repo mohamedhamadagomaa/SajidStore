@@ -1,0 +1,38 @@
+﻿	@model Entity.Entity.Item
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+<div id="details" class="mainContainer">
+	<h2>تفاصيل الصنف</h2>
+	<div>
+		<label>إسم الصنف:</label>
+		<span>@Model.Name</span>
+	</div>
+	<div>
+		<label>الكمية:</label>
+		<span>@Model.Quantity</span>
+	</div>
+	<div>
+		<label>سعر الشراء (جنية مصري):</label>
+		<span>@Model.ParchingPrice</span>
+	</div>
+	<div>
+		<label>سعر البيع (جنية مصري):</label>
+		<span>@Model.Price</span>
+	</div>
+	<div>
+		<label>الإجمالي (جنية مصري):</label>
+		<span>@(Model.Quantity * Model.Price)</span>
+	</div>
+	@{
+		var profit = Model.Price - Model.ParchingPrice;
+	}
+	<div>
+		<label>المكسب (جنية مصري):</label>
+		<span>@(profit * Model.Quantity)</span>
+	</div>
+
+	<a href="/Store/Store" class="btn btn-dark">العودة إلى المخرن</a>
+	</div>

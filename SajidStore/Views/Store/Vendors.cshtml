@@ -1,0 +1,40 @@
+﻿@model List<Entity.Entity.Vendors>
+@{
+	ViewData["Title"] = "الموردين";
+}
+
+<div id="vendors" class="features text-center pt-5 pb-5 p-5">
+	<h2 class="text-center">الموردين</h2>
+	<div class="text-end">
+		<a href="/Store/AddVendor" class="btn btn-success fw-bold align">إضافة مورد جديد</a>
+	</div>
+	<table class="table rounded-3">
+		<thead>
+			<tr>
+				<th>مسلسل</th>
+				<th>إسم المورد</th>
+				<th>رقم الهاتف</th>
+				<th>البريد الإلكتروني</th>
+				<th>الإجراءات</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var vendor in Model)
+			{
+				<tr>
+					<td>@Html.DisplayFor(modelItem => vendor.VendorID)</td>
+					<td>@Html.DisplayFor(modelItem => vendor.VName)</td>
+					<td>@Html.DisplayFor(modelItem => vendor.VPhone)</td>
+					<td>@Html.DisplayFor(modelItem => vendor.VEmail)</td>
+					<td>
+						<!-- Details Button -->
+						@Html.ActionLink("تفاصيل", "VendorDetails", "Store", new { id = vendor.VendorID }, new { @class = "btn btn-info" })
+						<!-- Edit Button -->
+						@Html.ActionLink("تعديل", "EditVendor", "Store", new { id = vendor.VendorID }, new { @class = "btn btn-light" })
+						<!-- Delete Button -->
+						@Html.ActionLink("حذف", "DeleteVendor", "Store", new { id = vendor.VendorID }, new { @class = "btn btn-danger" })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>

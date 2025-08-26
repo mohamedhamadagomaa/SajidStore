@@ -1,0 +1,12 @@
+
+
+#SajidStore App Development
+
+#Create New Entity As Type Of Items 
+ 1 - TypeID 
+ 2 - TypeName
+
+ relationships:
+  - TypeID to Items.TypeID
+
+  The Store will have different types of items, such as Laptops , Computers , Internet Caples, Cameras, etc.  

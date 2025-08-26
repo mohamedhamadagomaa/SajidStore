@@ -1,0 +1,51 @@
+﻿@model List<Entity.Entity.Item>
+
+@{
+    ViewData["Title"] = "Store ";
+}
+<div id="store" class="features text-center pt-5 pb-5 p-5">
+    <h2 class="text-center">المخرن</h2>
+    <div class="text-end">  
+    <a href="/Store/Add" class="btn btn-success fw-bold align">إضافة عنصر جديد</a>
+    </div>
+    <table class="table rounded-3">
+        <thead>
+            <tr>
+				<th>مسلسل</th>
+                <th>إٍسم الصنف</th>
+                <th>الكميه</th>
+                <th>(سعر البيع(جنية مصري</th>
+                <th>سعر اجمالي اليبع(جنية مصري)</th>
+                <th>الاجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+				var totalPrice = item.Quantity * item.Price;
+                <tr>
+					<td>@Html.DisplayFor(modelItem => item.ItemID)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                    <td>@totalPrice</td>
+                    <td>
+                        <!-- Details Button -->
+                        @Html.ActionLink("تفاصيل", "Details", "Store", new { id = item.ItemID }, new { @class = "btn btn-info" })
+                        <!-- Edit Button -->
+                        @Html.ActionLink("تعديل", "Edit", "Store", new { id = item.ItemID }, new { @class = "btn btn-light" })
+
+					
+
+                         <!-- Delete Button -->
+                        @Html.ActionLink("حذف", "Delete", "Store", new { id = item.ItemID }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+
+            }
+            
+    </tbody>
+</table>
+    
+</div>

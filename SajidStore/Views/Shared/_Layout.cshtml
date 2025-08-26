@@ -1,0 +1,75 @@
+﻿@using Entity.Entity
+@using Entity.Interfaces
+@inject IUnitOfWork<Menus> menuService
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SajidStore</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+    <link href="~/CSS/index.css" rel="styleSheet">
+    @* <link rel="stylesheet" href="~/SajidStore.styles.css" asp-append-version="true" /> *@
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <div class="navbar-brand" href="#">
+                @* <img src="~/img/LOGO.jpg" alt="" /> *@
+                  <h1 class="text-white-40">Sajid Store</h1>
+
+            </div>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#main"
+                    aria-controls="main"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="main">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item d-flex justify-content-between">
+                        @foreach (var menu in menuService.Entity.GetAllMenus())
+                        {
+                            <a asp-area="" asp-controller="@menu.Controller" asp-action="@menu.Action" class="nav-link p-2 p-lg-3 active">@menu.Description</a>
+                        }
+                        @* <a class="nav-link p-2 p-lg-3 active" aria-current="page" href="#">Home</a> *@
+                    </li>
+                  
+                </ul>
+                @* <div class="search ps-3 pe-3 d-none d-lg-block"> *@
+                @*     <i class="fa-solid fa-magnifying-glass"></i> *@
+                @* </div> *@
+                @* <a class="btn btn-primary rounded-pill main-btn" href="#">Login</a> *@
+            </div>
+        </div>
+    </nav>
+
+
+    @* <nav class="navbar"> *@
+
+    @*     @foreach (var menu in menuService.Entity.GetAllMenus()) *@
+    @*     { *@
+    @*         <a asp-area="" asp-controller="@menu.Controller" asp-action="@menu.Action" class="nav-link">@menu.Description</a> *@
+    @*     } *@
+
+    @* </nav> *@
+    <div>
+   
+            @RenderBody()
+        
+    </div>
+    
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
