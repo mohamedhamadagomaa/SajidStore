@@ -35,7 +35,7 @@ namespace SajidStore.Controllers
         {
             return View();
         }
-      
+        //End point to get all menus
         [HttpGet]
         public IActionResult Menus()
         {
