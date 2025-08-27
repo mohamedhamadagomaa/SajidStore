@@ -1,12 +1,3 @@
-
-
-#SajidStore App Development
-
-#Create New Entity As Type Of Items 
- 1 - TypeID 
- 2 - TypeName
-
- relationships:
-  - TypeID to Items.TypeID
-
-  The Store will have different types of items, such as Laptops , Computers , Internet Caples, Cameras, etc.  
+Sajid Store : MVC Application developed by :
+1-Front End Skills : HTML - CSS - JS - BOOTSTRAP.
+2-Back End Skills : C# - EF Core - MVC Design Pattern - MS SQL Server .
