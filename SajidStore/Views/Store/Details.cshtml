@@ -3,36 +3,61 @@
 @{
 	ViewData["Title"] = "Details";
 }
-
-<div id="details" class="mainContainer">
-	<h2>تفاصيل الصنف</h2>
-	<div>
-		<label>إسم الصنف:</label>
-		<span>@Model.Name</span>
-	</div>
-	<div>
-		<label>الكمية:</label>
-		<span>@Model.Quantity</span>
-	</div>
-	<div>
-		<label>سعر الشراء (جنية مصري):</label>
-		<span>@Model.ParchingPrice</span>
-	</div>
-	<div>
-		<label>سعر البيع (جنية مصري):</label>
-		<span>@Model.Price</span>
-	</div>
-	<div>
-		<label>الإجمالي (جنية مصري):</label>
-		<span>@(Model.Quantity * Model.Price)</span>
-	</div>
-	@{
-		var profit = Model.Price - Model.ParchingPrice;
-	}
-	<div>
-		<label>المكسب (جنية مصري):</label>
-		<span>@(profit * Model.Quantity)</span>
-	</div>
-
+<div class="features text-center pt-5 pb-5 p-5">
+	<table class="table tabe-borderd">
+		<tr>
+			<th>إسم الصنف</th>
+			<th>الكمية</th>
+			<th>سعر الشراء (جنية مصري)</th>
+			<th>سعر البيع (جنية مصري)</th>
+			<th>الإجمالي (جنية مصري)</th>
+			<th>المكسب (جنية مصري)</th>
+		</tr>
+		<tr>
+			<td>@Model.Name</td>
+			<td>@Model.Quantity</td>
+			<td>@Model.ParchingPrice</td>
+			<td>@Model.Price</td>
+			<td>@(Model.Quantity * Model.Price)</td>
+			@{
+				var profit = Model.Price - Model.ParchingPrice;
+			}
+			<td>@(profit * Model.Quantity)</td>
+		</tr>
+	</table>
 	<a href="/Store/Store" class="btn btn-dark">العودة إلى المخرن</a>
-	</div>
+</div>
+
+
+@* <div id="details" class="mainContainer"> *@
+@* 	<h2>تفاصيل الصنف</h2> *@
+@* 	<div> *@
+@* 		<label>إسم الصنف:</label> *@
+@* 		<span>@Model.Name</span> *@
+@* 	</div> *@
+@* 	<div> *@
+@* 		<label>الكمية:</label> *@
+@* 		<span>@Model.Quantity</span> *@
+@* 	</div> *@
+@* 	<div> *@
+@* 		<label>سعر الشراء (جنية مصري):</label> *@
+@* 		<span>@Model.ParchingPrice</span> *@
+@* 	</div> *@
+@* 	<div> *@
+@* 		<label>سعر البيع (جنية مصري):</label> *@
+@* 		<span>@Model.Price</span> *@
+@* 	</div> *@
+@* 	<div> *@
+@* 		<label>الإجمالي (جنية مصري):</label> *@
+@* 		<span>@(Model.Quantity * Model.Price)</span> *@
+@* 	</div> *@
+@* 	@{ *@
+@* 		var profit = Model.Price - Model.ParchingPrice; *@
+@* 	} *@
+@* 	<div> *@
+@* 		<label>المكسب (جنية مصري):</label> *@
+@* 		<span>@(profit * Model.Quantity)</span> *@
+@* 	</div> *@
+
+@* 	<a href="/Store/Store" class="btn btn-dark">العودة إلى المخرن</a> *@
+@* 	</div> *@
