@@ -34,5 +34,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Store}/{action=Home}/{id?}");
 //dotnet ef database update --project "D:\dotnet\projects\SajidStore\Entity" --startup-project "D:\dotnet\projects\SajidStore\SajidStore"
-//dotnet ef migrations add AddNewEntity --project "D:\dotnet\projects\SajidStore\Entity" --startup-project "D:\dotnet\projects\SajidStore\SajidStore"
+//dotnet ef migrations add CreateDb --project "D:\dotnet\projects\SajidGithub\SajidStore\Entity" --startup-project "D:\dotnet\projects\SajidGithub\SajidStore\SajidStore"
 app.Run();

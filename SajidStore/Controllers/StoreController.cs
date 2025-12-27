@@ -225,7 +225,7 @@ namespace SajidStore.Controllers
             return View(model);
         }
 
-        [HttpGet("ItemTypes")]
+        [HttpGet("TypesOfItems")]
         public IActionResult TypesOfItems()
         {
             var types = itemTypesService.Entity.GetTypesOfItems();
