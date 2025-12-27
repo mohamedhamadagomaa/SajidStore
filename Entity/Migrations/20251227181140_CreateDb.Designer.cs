@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250804161800_AddVendorsEntity")]
-    partial class AddVendorsEntity
+    [Migration("20251227181140_CreateDb")]
+    partial class CreateDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,9 +52,14 @@ namespace Entity.Migrations
                     b.Property<int>("TypeID")
                         .HasColumnType("int");
 
+                    b.Property<int>("VendorID")
+                        .HasColumnType("int");
+
                     b.HasKey("ItemID");
 
                     b.HasIndex("TypeID");
+
+                    b.HasIndex("VendorID");
 
                     b.ToTable("Items");
                 });
@@ -142,10 +147,23 @@ namespace Entity.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Entity.Entity.Vendors", "Vendors")
+                        .WithMany("Items")
+                        .HasForeignKey("VendorID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("ItemType");
+
+                    b.Navigation("Vendors");
                 });
 
             modelBuilder.Entity("Entity.Entity.ItemTypes", b =>
+                {
+                    b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("Entity.Entity.Vendors", b =>
                 {
                     b.Navigation("Items");
                 });
